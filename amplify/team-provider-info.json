@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-routingtesting-dev-15327-authRole",
+      "UnauthRoleArn": "arn:aws:iam::900765165512:role/amplify-routingtesting-dev-15327-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::900765165512:role/amplify-routingtesting-dev-15327-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-routingtesting-dev-15327-deployment",
+      "UnauthRoleName": "amplify-routingtesting-dev-15327-unauthRole",
+      "StackName": "amplify-routingtesting-dev-15327",
+      "StackId": "arn:aws:cloudformation:us-east-1:900765165512:stack/amplify-routingtesting-dev-15327/ac9f5e90-a2a2-11ec-ac73-12150e71ba05",
+      "AmplifyAppId": "dt4caeli3tfdf"
+    },
+    "categories": {
+      "auth": {
+        "routingtesting487fb395": {}
+      }
+    }
+  }
+}
