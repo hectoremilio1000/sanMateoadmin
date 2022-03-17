@@ -7,7 +7,7 @@ import image from "../../assets/logo/Asset 1-8.png";
 function NavBar() {
   return (
     <Row style={{ padding: 10 }}>
-      <Col xs={14} lg={18} style={{}}>
+      <Col xs={12} md={18}>
         <button
           style={{
             backgroundColor: "#fff",
@@ -19,7 +19,7 @@ function NavBar() {
           </Link>
         </button>
       </Col>
-      <Col xs={10} lg={6}>
+      <Col xs={12} md={6}>
         {" "}
         <Menu mode="horizontal">
           <Menu.Item key="/">

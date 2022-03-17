@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "sanmateoadmin",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/hectoremiliovelasquez/proyectos/React/antd/admin/admin/amplify/backend/api/sanmateoadmin/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-03-15T23:19:06.288Z",
+      "keyDescription": "sanmateoapifinal"
+    }
+  }
+}

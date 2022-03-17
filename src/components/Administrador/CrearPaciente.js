@@ -10,11 +10,19 @@ import {
   InputNumber,
   Select,
   TimePicker,
+  Button,
 } from "antd";
 
 const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;
+
+const onFinishFailed = errorInfo => {
+  console.log("Failed:", errorInfo);
+};
+const onFinish = values => {
+  console.log("Success:", values);
+};
 
 function CrearPaciente() {
   return (
@@ -35,10 +43,12 @@ function CrearPaciente() {
               span: 18,
             }}
             autoComplete="off"
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
           >
             <Item
               label="Nombre(s)"
-              name="nombre"
+              name="nombrePaciente"
               rules={[
                 {
                   required: true,
@@ -50,7 +60,7 @@ function CrearPaciente() {
             </Item>
             <Item
               label="Apellido paterno"
-              name="apellidopaterno"
+              name="apellidoPaternoPaciente"
               rules={[
                 {
                   required: true,
@@ -60,10 +70,91 @@ function CrearPaciente() {
             >
               <Input />
             </Item>
-            <Item label="Dirigido a" name="dirigido">
+            <Item
+              label="Apellido materno"
+              name="apellidoMaternoPaciente"
+              rules={[
+                {
+                  required: true,
+                  message: "Por favor ingresa el Apellido materno",
+                },
+              ]}
+            >
               <Input />
             </Item>
-            <Item label="Correo elecrónico o whtas">
+
+            <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
+              <DatePicker placeholder="fecha" />
+            </Item>
+            <Item label="Edad" name="edadPaciente">
+              <InputNumber
+                style={{ width: "50%" }}
+                placeholder="solo números"
+              />
+            </Item>
+            <Item
+              label="Correo elecrónico o whats escoger"
+              name="correoelectronicoWhatsescogerPaciente"
+            >
+              <Select>
+                <Option value="correoelectronicodirigido">
+                  Correo electrónico paciente
+                </Option>
+                <Option value="whatsdirigido">Whatsapp paciente</Option>
+              </Select>
+            </Item>
+
+            <Item
+              label="Correo electrónico o whats escribir"
+              name="correoelectronicoWhatsescribirPaciente"
+            >
+              <Input placeholder="escríbelo" />
+            </Item>
+
+            <Item label="Nombre de prueba" name="nombrePrueba">
+              <Select>
+                <Option value="covidantigenos">COVID ANTIGENOS</Option>
+                <Option value="covidanticuerpos">COVID ANTICUERPOS</Option>
+              </Select>
+            </Item>
+            <Item label="Hora de Muestra" name="horaMuestraPaciente">
+              <TimePicker placeholder="hora" />
+            </Item>
+            <Item label="Costo Prueba" name="costoPrueba">
+              <InputNumber placeholder="costo" prefix="$" />
+            </Item>
+            <Item label="Forma de pago" name="formaPagoPacientes">
+              <Select placeholder="selecciona">
+                <Option value="efectivo">EFECTIVO</Option>
+                <Option value="tarjeta">TARJETA</Option>
+                <Option value="transferencia">TRANSFERENCIA</Option>
+              </Select>
+            </Item>
+            <Item label="Resultado" name="resultadoPrueba">
+              <Input />
+            </Item>
+            <Item label="Realizado por" name="realizadopor">
+              <Input />
+            </Item>
+            <Item
+              label="Lugar de toma de muestra"
+              name="lugarTomaMuestraEscoger"
+            >
+              <Select placeholder="selecciona" style={{ width: "50%" }}>
+                <Option value="sucursal">SUCURSAL</Option>
+                <Option value="domicilio">DOMICILIO</Option>
+              </Select>
+            </Item>
+            <Item label="Dirección" name="direccionMuestra">
+              <Input placeholder="Independencia 1423 colonia centro c.p. 68000 Oaxaca de Juárez Oaxaca" />
+            </Item>
+            <Item label="Dirigido a" name="dirigidoa">
+              <Input />
+            </Item>
+            <Item
+              label="Correo elecrónico o whats dirigido escoger"
+              name="correoWhatsDirigidoEscoger"
+            >
               <Select>
                 <Option value="correoelectronicodirigido">
                   Correo electrónico
@@ -72,57 +163,24 @@ function CrearPaciente() {
               </Select>
             </Item>
 
-            <Item label="Correo electrónico o whats">
+            <Item
+              label="Correo electrónico o whats definir"
+              name="correoelectronicoWhatsDirigidoDefinir"
+            >
               <Input placeholder="escríbelo" />
             </Item>
-
-            <Item label="Fecha de nacimiento" name="fechanacimiento">
-              <DatePicker placeholder="fecha" />
-            </Item>
-            <Item label="Edad" name="edad">
-              <InputNumber
-                style={{ width: "50%" }}
-                placeholder="solo números"
-              />
-            </Item>
-            <Item label="Número de teléfono" name="numerotelefono">
-              <InputNumber style={{ width: "50%" }} placeholder="9511203024" />
-            </Item>
-            <Item label="Nombre de prueba" name="nombreprueba">
-              <Select>
-                <Option value="covidantigenos">COVID ANTIGENOS</Option>
-                <Option value="covidanticuerpos">COVID ANTICUERPOS</Option>
-              </Select>
-            </Item>
-            <Item label="Hora de Muestra" name="horademuestra">
-              <TimePicker placeholder="hora" />
-            </Item>
-            <Item label="Costo Prueba" name="costoprueba">
-              <InputNumber placeholder="costo" prefix="$" />
-            </Item>
-            <Item label="Forma de pago" name="formapago">
-              <Select placeholder="selecciona" style={{ width: "50%" }}>
-                <Option value="efectivo">EFECTIVO</Option>
-                <Option value="covidanticuerpos">COVID ANTICUERPOS</Option>
-              </Select>
-            </Item>
-            <Item label="Resultado" name="resultadoprueba">
+            <Item label="Mandado por o recomendado" name="MandadoRecomendado">
               <Input />
             </Item>
-            <Item label="Realizado por" name="realizadopor">
-              <Input />
-            </Item>
-            <Item label="Lugar de toma de muestra" name="lugarmuestra">
-              <Select placeholder="selecciona" style={{ width: "50%" }}>
-                <Option value="sucursal">SUCURSAL</Option>
-                <Option value="domicilio">DOMICILIO</Option>
-              </Select>
-            </Item>
-            <Item label="Dirección" name="direccion">
-              <Input placeholder="Independencia 1423 colonia centro c.p. 68000 Oaxaca de Juárez Oaxaca" />
-            </Item>
-            <Item label="Mandado por" name="mandadopor">
-              <Input />
+            <Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Button type="primary" htmlType="submit">
+                Agregar
+              </Button>
             </Item>
           </Form>
         </Col>

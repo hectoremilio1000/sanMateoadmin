@@ -1,16 +1,28 @@
 import React from "react";
 import { Layout, Menu, Typography } from "antd";
-import { UserOutlined, TeamOutlined } from "@ant-design/icons";
+import {
+  UserOutlined,
+  TeamOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+} from "@ant-design/icons";
 import "../../css/LayoutAdministrador.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import CrearUsuario from "./CrearPaciente";
+import ListaPacientes from "./ListaPacientes";
+import CrearPruebas from "./CrearPruebas";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
 function LayoutAdministrador({ user }) {
   const [current, setCurrent] = useState("");
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggle = () => {
+    setCollapsed(!collapsed);
+  };
 
   const cambiarComponent = e => {
     setCurrent(e.key);
@@ -20,7 +32,7 @@ function LayoutAdministrador({ user }) {
   if (user) {
     return (
       <Layout>
-        <Sider>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo" />
           <Menu
             theme="dark"
@@ -32,7 +44,7 @@ function LayoutAdministrador({ user }) {
               Registro de pacientes
             </Menu.Item>
             <Menu.Item key="2" icon={<TeamOutlined />} style={{ fontSize: 12 }}>
-              Lista de Usuarios
+              Lista de pacientes
             </Menu.Item>
             <Menu.Item key="3" icon={<TeamOutlined />} style={{ fontSize: 12 }}>
               Registro de Pruebas
@@ -42,11 +54,27 @@ function LayoutAdministrador({ user }) {
         <Layout>
           <Header
             className="site-layout-sub-header-background"
-            style={{ padding: 0 }}
+            style={{
+              padding: 0,
+              height: 100,
+              display: "flex",
+              justifyContent: "space-around",
+            }}
           >
-            <h1 style={{ textAlign: "center" }}>
-              Administrador, hola {user.username}
-            </h1>
+            <div>
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: "trigger hamburguesaMenu",
+                  onClick: toggle,
+                }
+              )}
+            </div>
+            <div>
+              <p style={{ textAlign: "center" }} className="textAdminHeader">
+                Administrador, hola {user.username}
+              </p>
+            </div>
           </Header>
 
           <Content style={{ margin: "24px 16px 0" }}>
@@ -62,10 +90,12 @@ function LayoutAdministrador({ user }) {
                 className="site-layout-background"
                 style={{ minHeight: 100 }}
               >
-                hola soy current 2
+                <ListaPacientes />
               </div>
             ) : current === "3" ? (
-              <div>hola soy current 3</div>
+              <div>
+                <CrearPruebas />
+              </div>
             ) : (
               <div>Por favor escoge una categoría</div>
             )}
