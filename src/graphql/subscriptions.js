@@ -5,25 +5,15 @@ export const onCreatePaciente = /* GraphQL */ `
   subscription OnCreatePaciente {
     onCreatePaciente {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }
@@ -33,25 +23,15 @@ export const onUpdatePaciente = /* GraphQL */ `
   subscription OnUpdatePaciente {
     onUpdatePaciente {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }
@@ -61,25 +41,15 @@ export const onDeletePaciente = /* GraphQL */ `
   subscription OnDeletePaciente {
     onDeletePaciente {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }

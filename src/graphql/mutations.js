@@ -8,25 +8,15 @@ export const createPaciente = /* GraphQL */ `
   ) {
     createPaciente(input: $input, condition: $condition) {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }
@@ -39,25 +29,15 @@ export const updatePaciente = /* GraphQL */ `
   ) {
     updatePaciente(input: $input, condition: $condition) {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }
@@ -70,25 +50,15 @@ export const deletePaciente = /* GraphQL */ `
   ) {
     deletePaciente(input: $input, condition: $condition) {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }

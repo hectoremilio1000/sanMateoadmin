@@ -5,25 +5,15 @@ export const getPaciente = /* GraphQL */ `
   query GetPaciente($id: ID!) {
     getPaciente(id: $id) {
       id
+      key
       nombrePaciente
       apellidoPaternoPaciente
       apellidoMaternoPaciente
       fechaNacimientoPaciente
       edadPaciente
+      direccionPaciente
       correoelectronicoWhatsescogerPaciente
       correoelectronicoWhatsescribirPaciente
-      nombrePrueba
-      horaMuestraPaciente
-      costoPrueba
-      formaPagoPacientes
-      resultadoPrueba
-      realizadopor
-      lugarTomaMuestraEscoger
-      direccionMuestra
-      dirigidoa
-      correoWhatsDirigidoEscoger
-      correoelectronicoWhatsDirigidoDefinir
-      MandadoRecomendado
       createdAt
       updatedAt
     }
@@ -38,25 +28,15 @@ export const listPacientes = /* GraphQL */ `
     listPacientes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        key
         nombrePaciente
         apellidoPaternoPaciente
         apellidoMaternoPaciente
         fechaNacimientoPaciente
         edadPaciente
+        direccionPaciente
         correoelectronicoWhatsescogerPaciente
         correoelectronicoWhatsescribirPaciente
-        nombrePrueba
-        horaMuestraPaciente
-        costoPrueba
-        formaPagoPacientes
-        resultadoPrueba
-        realizadopor
-        lugarTomaMuestraEscoger
-        direccionMuestra
-        dirigidoa
-        correoWhatsDirigidoEscoger
-        correoelectronicoWhatsDirigidoDefinir
-        MandadoRecomendado
         createdAt
         updatedAt
       }
