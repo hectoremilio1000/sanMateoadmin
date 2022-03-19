@@ -64,3 +64,54 @@ export const listPacientes = /* GraphQL */ `
     }
   }
 `;
+export const getPruebas = /* GraphQL */ `
+  query GetPruebas($id: ID!) {
+    getPruebas(id: $id) {
+      id
+      key
+      nombrePrueba
+      categoriaPrueba
+      imagenPrueba
+      creadoporPrueba
+      precioPrueba
+      precioPruebaViejo
+      descripcionLargaPrueba
+      descripcionCortaPrueba
+      tiempoEntregaPrueba
+      comentariosPrueba
+      tipoMuestraPrueba
+      requerimientoPrueba
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPruebas = /* GraphQL */ `
+  query ListPruebas(
+    $filter: ModelPruebasFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPruebas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        nombrePrueba
+        categoriaPrueba
+        imagenPrueba
+        creadoporPrueba
+        precioPrueba
+        precioPruebaViejo
+        descripcionLargaPrueba
+        descripcionCortaPrueba
+        tiempoEntregaPrueba
+        comentariosPrueba
+        tipoMuestraPrueba
+        requerimientoPrueba
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

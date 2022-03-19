@@ -85,3 +85,69 @@ export const onDeletePaciente = /* GraphQL */ `
     }
   }
 `;
+export const onCreatePruebas = /* GraphQL */ `
+  subscription OnCreatePruebas {
+    onCreatePruebas {
+      id
+      key
+      nombrePrueba
+      categoriaPrueba
+      imagenPrueba
+      creadoporPrueba
+      precioPrueba
+      precioPruebaViejo
+      descripcionLargaPrueba
+      descripcionCortaPrueba
+      tiempoEntregaPrueba
+      comentariosPrueba
+      tipoMuestraPrueba
+      requerimientoPrueba
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdatePruebas = /* GraphQL */ `
+  subscription OnUpdatePruebas {
+    onUpdatePruebas {
+      id
+      key
+      nombrePrueba
+      categoriaPrueba
+      imagenPrueba
+      creadoporPrueba
+      precioPrueba
+      precioPruebaViejo
+      descripcionLargaPrueba
+      descripcionCortaPrueba
+      tiempoEntregaPrueba
+      comentariosPrueba
+      tipoMuestraPrueba
+      requerimientoPrueba
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeletePruebas = /* GraphQL */ `
+  subscription OnDeletePruebas {
+    onDeletePruebas {
+      id
+      key
+      nombrePrueba
+      categoriaPrueba
+      imagenPrueba
+      creadoporPrueba
+      precioPrueba
+      precioPruebaViejo
+      descripcionLargaPrueba
+      descripcionCortaPrueba
+      tiempoEntregaPrueba
+      comentariosPrueba
+      tipoMuestraPrueba
+      requerimientoPrueba
+      createdAt
+      updatedAt
+    }
+  }
+`;

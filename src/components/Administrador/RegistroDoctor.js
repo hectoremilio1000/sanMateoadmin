@@ -12,7 +12,6 @@ import {
   TimePicker,
   Button,
 } from "antd";
-
 const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;
@@ -24,13 +23,13 @@ const onFinish = values => {
   console.log("Success:", values);
 };
 
-function CrearPaciente() {
+function RegistroDoctor() {
   return (
     <div>
       <Row>
         <Col xs={24}>
           <Title level={4} style={{ textAlign: "center" }}>
-            Crear paciente nuevo
+            Registro Doctor
           </Title>
         </Col>
         <Col xs={23} sm={20} md={20} lg={20}>
@@ -48,23 +47,24 @@ function CrearPaciente() {
           >
             <Item
               label="Nombre(s)"
-              name="nombrePaciente"
+              name="nombreDoctor"
               rules={[
                 {
                   required: true,
-                  message: "Por favor ingresa el nombre(s) del usuario",
+                  message: "Por favor ingresa el nombre del Doctor",
                 },
               ]}
             >
               <Input />
             </Item>
+
             <Item
               label="Apellido paterno"
-              name="apellidoPaternoPaciente"
+              name="apellidoPaternoDoctor"
               rules={[
                 {
                   required: true,
-                  message: "Por favor ingresa el Apellido paterno",
+                  message: "Por favor ingresa los apellidos del Doctor",
                 },
               ]}
             >
@@ -72,46 +72,37 @@ function CrearPaciente() {
             </Item>
             <Item
               label="Apellido materno"
-              name="apellidoMaternoPaciente"
+              name="apellidoMaternoDoctor"
               rules={[
                 {
                   required: true,
-                  message: "Por favor ingresa el Apellido materno",
+                  message: "Por favor ingresa los apellidos del Doctor",
                 },
               ]}
             >
               <Input />
             </Item>
 
-            <Item label="Fecha de nacimiento" name="fechaNacimientoPaciente">
-              <DatePicker placeholder="fecha" />
-            </Item>
-            <Item label="Edad" name="edadPaciente">
-              <InputNumber
-                style={{ width: "50%" }}
-                placeholder="solo números"
-              />
-            </Item>
-            <Item label="Dirección" name="direccionPaciente">
-              <Input placeholder="Independencia 1423 colonia centro c.p. 68000 Oaxaca de Juárez Oaxaca" />
-            </Item>
             <Item
-              label="Email o whats escoger"
-              name="correoelectronicoWhatsescogerPaciente"
+              label="Correo elecrónico o whats escoger"
+              name="correoelectronicoWhatsescogerDoctor"
             >
               <Select>
-                <Option value="correoelectronicodirigido">
-                  Correo electrónico paciente
+                <Option value="correoelectronicoescogerDoctor">
+                  Correo electrónico
                 </Option>
-                <Option value="whatsdirigido">Whatsapp paciente</Option>
+                <Option value="whatsescogerDoctor">Whatsapp </Option>
               </Select>
             </Item>
 
             <Item
-              label="Email o whats escribir"
-              name="correoelectronicoWhatsescribirPaciente"
+              label="Correo electrónico o whats escribir"
+              name="correoelectronicoWhatsescribirDoctor"
             >
               <Input placeholder="escríbelo" />
+            </Item>
+            <Item label="Porcentaje apoyo" name="porcentajeApoyo">
+              <InputNumber placeholder="definir porcentaje" prefix="%" />
             </Item>
 
             <Item
@@ -131,4 +122,4 @@ function CrearPaciente() {
   );
 }
 
-export default CrearPaciente;
+export default RegistroDoctor;

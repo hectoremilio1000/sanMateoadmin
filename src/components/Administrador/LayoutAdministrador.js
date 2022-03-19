@@ -5,6 +5,13 @@ import {
   TeamOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  RobotOutlined,
+  ExceptionOutlined,
+  ExperimentOutlined,
+  ForkOutlined,
+  NodeIndexOutlined,
+  MedicineBoxOutlined,
+  ProfileOutlined,
 } from "@ant-design/icons";
 import "../../css/LayoutAdministrador.css";
 import { useState } from "react";
@@ -12,6 +19,11 @@ import { useEffect } from "react";
 import CrearUsuario from "./CrearPaciente";
 import ListaPacientes from "./ListaPacientes";
 import CrearPruebas from "./CrearPruebas";
+import ListaPruebas from "./ListaPruebas";
+import RegistroDoctor from "./RegistroDoctor";
+import ListaDoctor from "./ListaDoctor";
+import CrearOrden from "./CrearOrden";
+import ListaOrdenes from "./ListaOrdenes";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -46,8 +58,43 @@ function LayoutAdministrador({ user }) {
             <Menu.Item key="2" icon={<TeamOutlined />} style={{ fontSize: 12 }}>
               Lista de pacientes
             </Menu.Item>
-            <Menu.Item key="3" icon={<TeamOutlined />} style={{ fontSize: 12 }}>
-              Registro de Pruebas
+            <Menu.Item
+              key="3"
+              icon={<ExperimentOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Crear prueba
+            </Menu.Item>
+            <Menu.Item
+              key="4"
+              icon={<ExceptionOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Lista de pruebas
+            </Menu.Item>
+            <Menu.Item
+              key="5"
+              icon={<NodeIndexOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Registro doctor
+            </Menu.Item>
+            <Menu.Item key="6" icon={<ForkOutlined />} style={{ fontSize: 12 }}>
+              Lista Doctores
+            </Menu.Item>
+            <Menu.Item
+              key="7"
+              icon={<MedicineBoxOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Crear Orden
+            </Menu.Item>
+            <Menu.Item
+              key="8"
+              icon={<ProfileOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Lista órdenes
             </Menu.Item>
           </Menu>
         </Sider>
@@ -95,6 +142,26 @@ function LayoutAdministrador({ user }) {
             ) : current === "3" ? (
               <div>
                 <CrearPruebas />
+              </div>
+            ) : current === "4" ? (
+              <div>
+                <ListaPruebas />
+              </div>
+            ) : current === "5" ? (
+              <div>
+                <RegistroDoctor />
+              </div>
+            ) : current === "6" ? (
+              <div>
+                <ListaDoctor />
+              </div>
+            ) : current === "7" ? (
+              <div>
+                <CrearOrden />
+              </div>
+            ) : current === "8" ? (
+              <div>
+                <ListaOrdenes />
               </div>
             ) : (
               <div>Por favor escoge una categoría</div>

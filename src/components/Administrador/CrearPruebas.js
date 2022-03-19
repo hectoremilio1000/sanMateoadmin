@@ -4,25 +4,93 @@ import {
   Form,
   Input,
   InputNumber,
-  message,
   Row,
   Select,
   Typography,
   Upload,
 } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { UploadOutlined } from "@ant-design/icons";
+import { v4 as uuidv4 } from "uuid";
+import { API, graphqlOperation, Storage } from "aws-amplify";
+import { createPruebas } from "../../../src/graphql/mutations";
+import config from "../../aws-exports";
+
+//import config storage
+const {
+  aws_user_files_s3_bucket_region: region,
+  aws_user_files_s3_bucket: bucket,
+} = config;
 
 const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;
 
 function CrearPruebas() {
-  const onFinishFailed = errorInfo => {
+  const [image, setImage] = useState(null);
+  const [pruebaDetails, setPruebaDetails] = useState({
+    id: "",
+    key: "",
+    nombrePrueba: "",
+    categoriaPrueba: "",
+    imagenPrueba: "",
+    creadoPorPrueba: "",
+    precioPrueba: "",
+    precioPruebaViejo: "",
+    descripcionLargaPrueba: "",
+    descripcionCortaPrueba: "",
+    tiempoEntregaPrueba: "",
+    comentariosPrueba: "",
+    tipoMuestraPrueba: "",
+    requerimientoPrueba: "",
+  });
+
+  const onFinishFailed = async errorInfo => {
     console.log("Failed:", errorInfo);
   };
-  const onFinish = values => {
-    console.log("Success:", values);
+  const onFinish = async values => {
+    try {
+      const pruebaDetails = {
+        id: uuidv4(),
+        key: uuidv4(),
+        nombrePrueba: values.nombrePrueba,
+        categoriaPrueba: values.categoriaPrueba,
+        imagenPrueba: values.imagenPrueba,
+        creadoporPrueba: values.creadoporPrueba,
+        precioPrueba: values.precioPrueba,
+        precioPruebaViejo: values.precioPruebaViejo,
+        descripcionLargaPrueba: values.descripcionLargaPrueba,
+        descripcionCortaPrueba: values.descripcionCortaPrueba,
+        tiempoEntregaPrueba: values.tiempoEntregaPrueba,
+        comentariosPrueba: values.comentariosPrueba,
+        tipoMuestraPrueba: values.tipoMuestraPrueba,
+        requerimientoPrueba: values.requerimientoPrueba,
+      };
+
+      await API.graphql(
+        graphqlOperation(createPruebas, { input: pruebaDetails })
+      );
+      setPruebaDetails({
+        id: "",
+        key: "",
+        nombrePrueba: "",
+        categoriaPrueba: "",
+        imagenPrueba: "",
+        creadoPorPrueba: "",
+        precioPrueba: "",
+        precioPruebaViejo: "",
+        descripcionLargaPrueba: "",
+        descripcionCortaPrueba: "",
+        tiempoEntregaPrueba: "",
+        comentariosPrueba: "",
+        tipoMuestraPrueba: "",
+        requerimientoPrueba: "",
+      });
+      console.log("Success:", values);
+      console.log(values.nombrePrueba);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //image upload//
@@ -84,7 +152,7 @@ function CrearPruebas() {
               </Select>
             </Item>
             <Item
-              name="upload"
+              name="imagenPrueba"
               label="Upload"
               valuePropName="fileList"
               getValueFromEvent={normFile}
@@ -99,7 +167,7 @@ function CrearPruebas() {
             </Item>
             <Item
               label="Creado por"
-              name="creadopor"
+              name="creadoporPrueba"
               rules={[
                 {
                   required: true,
@@ -112,7 +180,7 @@ function CrearPruebas() {
 
             <Item
               label="Precio de la Prueba"
-              name="prcioPrueba"
+              name="precioPrueba"
               rules={[
                 {
                   required: true,
@@ -124,7 +192,7 @@ function CrearPruebas() {
             </Item>
             <Item
               label="Precio de la Prueba viejo"
-              name="prcioPruebaViejo"
+              name="precioPruebaViejo"
               rules={[
                 {
                   required: true,
@@ -136,7 +204,7 @@ function CrearPruebas() {
             </Item>
             <Item
               label="Descripción larga"
-              name="descripcion"
+              name="descripcionLargaPrueba"
               rules={[
                 {
                   required: true,
@@ -148,7 +216,7 @@ function CrearPruebas() {
             </Item>
             <Item
               label="Descripción corta"
-              name="descripcioncorta"
+              name="descripcionCortaPrueba"
               rules={[
                 {
                   required: true,
@@ -160,7 +228,7 @@ function CrearPruebas() {
             </Item>
             <Item
               label="Tiempo de entrega"
-              name="tiempoentrega"
+              name="tiempoEntregaPrueba"
               rules={[
                 {
                   required: true,
@@ -170,14 +238,24 @@ function CrearPruebas() {
             >
               <Input placeholder="Resultados en 24 a 48 horas" />
             </Item>
-            <Item label="Comentarios sobre la prueba" name="comentariosprueba">
+            <Item label="Comentarios sobre la prueba" name="comentariosPrueba">
               <Input placeholder="Prueba post-vacuna o post-infección ..." />
             </Item>
-            <Item label="Tipo de Muestra" name="tipomuestra">
+            <Item label="Tipo de Muestra" name="tipoMuestraPrueba">
               <Input placeholder="Muestra de sangre" />
             </Item>
-            <Item label="Requerimientos extra" name="requerimientosextra">
+            <Item label="Requerimientos extra" name="requerimientoPrueba">
               <Input placeholder="Pedir vaso para orina..." />
+            </Item>
+            <Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Button type="primary" htmlType="submit">
+                Agregar
+              </Button>
             </Item>
           </Form>
         </Col>

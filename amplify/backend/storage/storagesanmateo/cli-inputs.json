@@ -1,0 +1,16 @@
+{
+  "resourceName": "storagesanmateo",
+  "policyUUID": "4e6732cd",
+  "bucketName": "sanmateoadminb1c3991647384551aa1e42fd069eda78",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

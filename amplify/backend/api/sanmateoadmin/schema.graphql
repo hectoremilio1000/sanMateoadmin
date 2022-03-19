@@ -5,23 +5,30 @@ input AMPLIFY {
 } # FOR TESTING ONLY!
 type Paciente @model {
   id: ID!
+  key: ID
   nombrePaciente: String!
   apellidoPaternoPaciente: String
   apellidoMaternoPaciente: String
   fechaNacimientoPaciente: String
   edadPaciente: String
+  direccionPaciente: String
   correoelectronicoWhatsescogerPaciente: String
   correoelectronicoWhatsescribirPaciente: String
+}
+
+type Pruebas @model {
+  id: ID!
+  key: ID
   nombrePrueba: String
-  horaMuestraPaciente: String
-  costoPrueba: String
-  formaPagoPacientes: String
-  resultadoPrueba: String
-  realizadopor: String
-  lugarTomaMuestraEscoger: String
-  direccionMuestra: String
-  dirigidoa: String
-  correoWhatsDirigidoEscoger: String
-  correoelectronicoWhatsDirigidoDefinir: String
-  MandadoRecomendado: String
+  categoriaPrueba: String
+  imagenPrueba: String
+  creadoporPrueba: String
+  precioPrueba: Float
+  precioPruebaViejo: Float
+  descripcionLargaPrueba: String
+  descripcionCortaPrueba: String
+  tiempoEntregaPrueba: String
+  comentariosPrueba: String
+  tipoMuestraPrueba: String
+  requerimientoPrueba: String
 }

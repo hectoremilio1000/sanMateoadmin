@@ -43,5 +43,12 @@
         }
       }
     }
+  },
+  "storage": {
+    "storagesanmateo": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
   }
 }
