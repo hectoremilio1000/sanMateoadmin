@@ -5,13 +5,14 @@ import {
   TeamOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  RobotOutlined,
   ExceptionOutlined,
   ExperimentOutlined,
   ForkOutlined,
   NodeIndexOutlined,
   MedicineBoxOutlined,
   ProfileOutlined,
+  IdcardOutlined,
+  FileAddOutlined,
 } from "@ant-design/icons";
 import "../../css/LayoutAdministrador.css";
 import { useState } from "react";
@@ -24,9 +25,11 @@ import RegistroDoctor from "./RegistroDoctor";
 import ListaDoctor from "./ListaDoctor";
 import CrearOrden from "./CrearOrden";
 import ListaOrdenes from "./ListaOrdenes";
+import RegistroResultado from "./RegistroResultado";
+import ListaResultados from "./ListaResultados";
 
 //amplify//
-import { API, graphqlOperation } from "aws-amplify";
+import { API } from "aws-amplify";
 import { listPacientes } from "../../graphql/queries";
 import { listDoctors } from "../../graphql/queries";
 import { listOrdens } from "../../graphql/queries";
@@ -108,8 +111,6 @@ function LayoutAdministrador({ user }) {
     fetchOrdenes();
   }, []);
 
-  console.log(ordenes);
-
   if (user) {
     return (
       <Layout>
@@ -164,6 +165,20 @@ function LayoutAdministrador({ user }) {
               style={{ fontSize: 12 }}
             >
               Lista órdenes
+            </Menu.Item>
+            <Menu.Item
+              key="9"
+              icon={<FileAddOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Registro resultado
+            </Menu.Item>
+            <Menu.Item
+              key="10"
+              icon={<IdcardOutlined />}
+              style={{ fontSize: 12 }}
+            >
+              Lista resultados
             </Menu.Item>
           </Menu>
         </Sider>
@@ -232,8 +247,16 @@ function LayoutAdministrador({ user }) {
               <div>
                 <ListaOrdenes ordenes={ordenes} />
               </div>
+            ) : current === "9" ? (
+              <div>
+                <RegistroResultado />
+              </div>
+            ) : current === "10" ? (
+              <div>
+                <ListaResultados />
+              </div>
             ) : (
-              <div>Por favor escoge una categoría</div>
+              <ListaOrdenes ordenes={ordenes} />
             )}
           </Content>
         </Layout>

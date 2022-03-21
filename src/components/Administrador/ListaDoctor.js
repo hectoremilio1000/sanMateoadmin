@@ -34,6 +34,16 @@ const columns = [
     dataIndex: "porcentajeApoyoDoctor",
     key: "porcentajeApoyoDoctor",
   },
+  {
+    title: "id",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "key",
+    dataIndex: "key",
+    key: "key",
+  },
 ];
 
 function ListaDoctor({ doctores }) {
