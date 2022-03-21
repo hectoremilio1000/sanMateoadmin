@@ -1,18 +1,6 @@
 import React from "react";
 import { Table } from "antd";
 
-const doctoresData = [
-  {
-    id: 1,
-    key: "1",
-    nombreDoctor: "hector",
-    apellidoPaternoDoctor: "velasquez",
-    apellidoMaternoDoctor: "perez",
-    correoWhatsEscogerDoctor: "Correo electronico",
-    porcentajeApoyoDoctor: 100,
-  },
-];
-
 const columns = [
   {
     title: "Nombre",
@@ -33,26 +21,26 @@ const columns = [
   },
   {
     title: "correo/Whats Escoger",
-    dataIndex: "correoWhatsEscogerDoctor",
-    key: "correoWhatsEscogerDoctor",
+    dataIndex: "correoelectronicoWhatsescogerDoctor",
+    key: "correoelectronicoWhatsescogerDoctor",
   },
   {
     title: "correo/Whats definir",
-    dataIndex: "correoWhatsDefinirDoctor",
-    key: "correoWhatsDefinirDoctor",
+    dataIndex: "correoelectronicoWhatsescribirDoctor",
+    key: "correoelectronicoWhatsescribirDoctor",
   },
   {
     title: "porcentaje Doctor",
-    dataIndex: "correoWhatsDefinirDoctor",
-    key: "correoWhatsDefinirDoctor",
+    dataIndex: "porcentajeApoyoDoctor",
+    key: "porcentajeApoyoDoctor",
   },
 ];
 
-function ListaDoctor() {
+function ListaDoctor({ doctores }) {
   return (
     <>
       <div>Lista Pacientes</div>
-      <Table dataSource={doctoresData} columns={columns} scroll={{ x: 1500 }} />
+      <Table dataSource={doctores} columns={columns} scroll={{ x: 1500 }} />
     </>
   );
 }

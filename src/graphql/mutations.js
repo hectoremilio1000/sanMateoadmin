@@ -139,3 +139,150 @@ export const deletePruebas = /* GraphQL */ `
     }
   }
 `;
+export const createDoctor = /* GraphQL */ `
+  mutation CreateDoctor(
+    $input: CreateDoctorInput!
+    $condition: ModelDoctorConditionInput
+  ) {
+    createDoctor(input: $input, condition: $condition) {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDoctor = /* GraphQL */ `
+  mutation UpdateDoctor(
+    $input: UpdateDoctorInput!
+    $condition: ModelDoctorConditionInput
+  ) {
+    updateDoctor(input: $input, condition: $condition) {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDoctor = /* GraphQL */ `
+  mutation DeleteDoctor(
+    $input: DeleteDoctorInput!
+    $condition: ModelDoctorConditionInput
+  ) {
+    deleteDoctor(input: $input, condition: $condition) {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createOrden = /* GraphQL */ `
+  mutation CreateOrden(
+    $input: CreateOrdenInput!
+    $condition: ModelOrdenConditionInput
+  ) {
+    createOrden(input: $input, condition: $condition) {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateOrden = /* GraphQL */ `
+  mutation UpdateOrden(
+    $input: UpdateOrdenInput!
+    $condition: ModelOrdenConditionInput
+  ) {
+    updateOrden(input: $input, condition: $condition) {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteOrden = /* GraphQL */ `
+  mutation DeleteOrden(
+    $input: DeleteOrdenInput!
+    $condition: ModelOrdenConditionInput
+  ) {
+    deleteOrden(input: $input, condition: $condition) {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;

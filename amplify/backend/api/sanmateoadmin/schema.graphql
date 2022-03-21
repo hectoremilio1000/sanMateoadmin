@@ -32,3 +32,36 @@ type Pruebas @model {
   tipoMuestraPrueba: String
   requerimientoPrueba: String
 }
+
+type Doctor @model {
+  id: ID!
+  key: ID
+  nombreDoctor: String
+  apellidoPaternoDoctor: String
+  apellidoMaternoDoctor: String
+  correoelectronicoWhatsescogerDoctor: String
+  correoelectronicoWhatsescribirDoctor: String
+  porcentajeApoyoDoctor: Float
+}
+
+type Orden @model {
+  id: ID!
+  key: ID
+  nombrePacienteOrden: String
+  apellidoPaternoPacienteOrden: String
+  apellidoMaternoPacienteOrden: String
+  fechaOrden: String
+  horaOrden: String
+  emailWhatsEscogerPacienteOrden: String
+  emailWhatsEscribirPacienteOrden: String
+  pruebaOrden: String
+  costoPruebaOrden: String
+  formaPagoOrden: String
+  ingresadoPorOrden: String
+  lugarTomaMuestraOrden: String
+  direccionTomaMuestraOrden: String
+  doctorDirigidoOrden: String
+  emailWhatsDirigidoEscogerOrden: String
+  emailWhatsDirigidoDefinirOrden: String
+  mandadoporOrden: String
+}

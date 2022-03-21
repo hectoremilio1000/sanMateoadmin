@@ -121,3 +121,132 @@ export const onDeletePruebas = /* GraphQL */ `
     }
   }
 `;
+export const onCreateDoctor = /* GraphQL */ `
+  subscription OnCreateDoctor {
+    onCreateDoctor {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateDoctor = /* GraphQL */ `
+  subscription OnUpdateDoctor {
+    onUpdateDoctor {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteDoctor = /* GraphQL */ `
+  subscription OnDeleteDoctor {
+    onDeleteDoctor {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateOrden = /* GraphQL */ `
+  subscription OnCreateOrden {
+    onCreateOrden {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateOrden = /* GraphQL */ `
+  subscription OnUpdateOrden {
+    onUpdateOrden {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteOrden = /* GraphQL */ `
+  subscription OnDeleteOrden {
+    onDeleteOrden {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;

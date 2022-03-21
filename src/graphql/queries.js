@@ -95,3 +95,103 @@ export const listPruebas = /* GraphQL */ `
     }
   }
 `;
+export const getDoctor = /* GraphQL */ `
+  query GetDoctor($id: ID!) {
+    getDoctor(id: $id) {
+      id
+      key
+      nombreDoctor
+      apellidoPaternoDoctor
+      apellidoMaternoDoctor
+      correoelectronicoWhatsescogerDoctor
+      correoelectronicoWhatsescribirDoctor
+      porcentajeApoyoDoctor
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDoctors = /* GraphQL */ `
+  query ListDoctors(
+    $filter: ModelDoctorFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDoctors(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        nombreDoctor
+        apellidoPaternoDoctor
+        apellidoMaternoDoctor
+        correoelectronicoWhatsescogerDoctor
+        correoelectronicoWhatsescribirDoctor
+        porcentajeApoyoDoctor
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getOrden = /* GraphQL */ `
+  query GetOrden($id: ID!) {
+    getOrden(id: $id) {
+      id
+      key
+      nombrePacienteOrden
+      apellidoPaternoPacienteOrden
+      apellidoMaternoPacienteOrden
+      fechaOrden
+      horaOrden
+      emailWhatsEscogerPacienteOrden
+      emailWhatsEscribirPacienteOrden
+      pruebaOrden
+      costoPruebaOrden
+      formaPagoOrden
+      ingresadoPorOrden
+      lugarTomaMuestraOrden
+      direccionTomaMuestraOrden
+      doctorDirigidoOrden
+      emailWhatsDirigidoEscogerOrden
+      emailWhatsDirigidoDefinirOrden
+      mandadoporOrden
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listOrdens = /* GraphQL */ `
+  query ListOrdens(
+    $filter: ModelOrdenFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOrdens(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        nombrePacienteOrden
+        apellidoPaternoPacienteOrden
+        apellidoMaternoPacienteOrden
+        fechaOrden
+        horaOrden
+        emailWhatsEscogerPacienteOrden
+        emailWhatsEscribirPacienteOrden
+        pruebaOrden
+        costoPruebaOrden
+        formaPagoOrden
+        ingresadoPorOrden
+        lugarTomaMuestraOrden
+        direccionTomaMuestraOrden
+        doctorDirigidoOrden
+        emailWhatsDirigidoEscogerOrden
+        emailWhatsDirigidoDefinirOrden
+        mandadoporOrden
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

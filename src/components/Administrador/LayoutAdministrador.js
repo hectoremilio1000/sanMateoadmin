@@ -28,6 +28,8 @@ import ListaOrdenes from "./ListaOrdenes";
 //amplify//
 import { API, graphqlOperation } from "aws-amplify";
 import { listPacientes } from "../../graphql/queries";
+import { listDoctors } from "../../graphql/queries";
+import { listOrdens } from "../../graphql/queries";
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -37,6 +39,10 @@ function LayoutAdministrador({ user }) {
   const [collapsed, setCollapsed] = useState(false);
   const [pacientes, setPacientes] = useState([]);
   const [loadingPaciente, setLoadingPaciente] = useState(false);
+  const [doctores, setDoctores] = useState([]);
+  const [loadingDoctores, setLoadingDoctores] = useState(false);
+  const [ordenes, setOrdenes] = useState([]);
+  const [loadingOrdenes, setLoadingOrdenes] = useState(false);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -63,6 +69,46 @@ function LayoutAdministrador({ user }) {
   useEffect(() => {
     fetchPaciente();
   }, []);
+
+  const fetchDoctores = async () => {
+    try {
+      setLoadingDoctores(true);
+      const { data } = await API.graphql({
+        query: listDoctors,
+        authMode: "API_KEY",
+      });
+      const doctores = data.listDoctors.items;
+      setDoctores(doctores);
+      setLoadingDoctores(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDoctores();
+  }, []);
+
+  const fetchOrdenes = async () => {
+    try {
+      setLoadingOrdenes(true);
+      const { data } = await API.graphql({
+        query: listOrdens,
+        authMode: "API_KEY",
+      });
+      const ordenes = data.listOrdens.items;
+      setOrdenes(ordenes);
+      setLoadingOrdenes(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrdenes();
+  }, []);
+
+  console.log(ordenes);
 
   if (user) {
     return (
@@ -176,7 +222,7 @@ function LayoutAdministrador({ user }) {
               </div>
             ) : current === "6" ? (
               <div>
-                <ListaDoctor />
+                <ListaDoctor doctores={doctores} />
               </div>
             ) : current === "7" ? (
               <div>
@@ -184,7 +230,7 @@ function LayoutAdministrador({ user }) {
               </div>
             ) : current === "8" ? (
               <div>
-                <ListaOrdenes />
+                <ListaOrdenes ordenes={ordenes} />
               </div>
             ) : (
               <div>Por favor escoge una categoría</div>
