@@ -91,86 +91,27 @@ const columns = [
     key: "edadPaciente",
   },
   {
-    title: "correoelectronico Whats escoger",
+    title: "dirección",
+    dataIndex: "direccionPaciente",
+    key: "direccionPaciente",
+  },
+  {
+    title: "email/whats escoger",
     dataIndex: "correoelectronicoWhatsescogerPaciente",
     key: "correoelectronicoWhatsescogerPaciente",
   },
   {
-    title: "correo electronicoWhats escribir",
+    title: "email/whats escribir",
     dataIndex: "correoelectronicoWhatsescribirPaciente",
     key: "correoelectronicoWhatsescribirPaciente",
   },
-  {
-    title: "nombre Prueba",
-    dataIndex: "nombrePrueba",
-    key: "nombrePrueba",
-  },
-  {
-    title: "hora Muestra",
-    dataIndex: "horaMuestraPaciente",
-    key: "horaMuestraPaciente",
-  },
-  {
-    title: "costo Prueba",
-    dataIndex: "costoPrueba",
-    key: "costoPrueba",
-  },
-  {
-    title: "forma de Pago",
-    dataIndex: "formaPagoPacientes",
-    key: "formaPagoPacientes",
-  },
-  {
-    title: "resultado Prueba",
-    dataIndex: "resultadoPrueba",
-    key: "resultadoPrueba",
-  },
-  {
-    title: "realizado por",
-    dataIndex: "realizadopor",
-    key: "realizadopor",
-  },
-  {
-    title: "lugar de Toma de Muestra",
-    dataIndex: "lugarTomaMuestraEscoger",
-    key: "lugarTomaMuestraEscoger",
-  },
-  {
-    title: "direccion de toma de Muestra",
-    dataIndex: "direccionMuestra",
-    key: "direccionMuestra",
-  },
-  {
-    title: "Dirigido a",
-    dataIndex: "dirigidoa",
-    key: "dirigidoa",
-  },
-  {
-    title: "correo o Whats Dirigido",
-    dataIndex: "correoWhatsDirigidoEscoger",
-    key: "correoWhatsDirigidoEscoger",
-  },
-  {
-    title: "correo o Whats Dirigido",
-    dataIndex: "correoelectronicoWhatsDirigidoDefinir",
-    key: "correoelectronicoWhatsDirigidoDefinir",
-  },
-  {
-    title: "Mandado por o Recomendado",
-    dataIndex: "MandadoRecomendado",
-    key: "MandadoRecomendado",
-  },
 ];
 
-function ListaPacientes() {
+function ListaPacientes({ pacientes }) {
   return (
     <>
       <div>ListaPacientes</div>
-      <Table
-        dataSource={pacientesData}
-        columns={columns}
-        scroll={{ x: 2000 }}
-      />
+      <Table dataSource={pacientes} columns={columns} scroll={{ x: 2000 }} />
     </>
   );
 }

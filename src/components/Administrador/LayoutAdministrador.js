@@ -25,12 +25,18 @@ import ListaDoctor from "./ListaDoctor";
 import CrearOrden from "./CrearOrden";
 import ListaOrdenes from "./ListaOrdenes";
 
+//amplify//
+import { API, graphqlOperation } from "aws-amplify";
+import { listPacientes } from "../../graphql/queries";
+
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
 
 function LayoutAdministrador({ user }) {
   const [current, setCurrent] = useState("");
   const [collapsed, setCollapsed] = useState(false);
+  const [pacientes, setPacientes] = useState([]);
+  const [loadingPaciente, setLoadingPaciente] = useState(false);
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -40,7 +46,24 @@ function LayoutAdministrador({ user }) {
     setCurrent(e.key);
   };
 
-  console.log(current);
+  const fetchPaciente = async () => {
+    try {
+      setLoadingPaciente(true);
+      const { data } = await API.graphql({
+        query: listPacientes,
+        authMode: "API_KEY",
+      });
+      const pacientes = data.listPacientes.items;
+      setPacientes(pacientes);
+      setLoadingPaciente(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchPaciente();
+  }, []);
+
   if (user) {
     return (
       <Layout>
@@ -137,7 +160,7 @@ function LayoutAdministrador({ user }) {
                 className="site-layout-background"
                 style={{ minHeight: 100 }}
               >
-                <ListaPacientes />
+                <ListaPacientes pacientes={pacientes} />
               </div>
             ) : current === "3" ? (
               <div>

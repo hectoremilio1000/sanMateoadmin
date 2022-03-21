@@ -1,5 +1,7 @@
 import React from "react";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
+import { API, graphqlOperation } from "aws-amplify";
+import { createPaciente } from "../../graphql/mutations";
 import {
   Row,
   Col,
@@ -12,19 +14,74 @@ import {
   TimePicker,
   Button,
 } from "antd";
+import { useState } from "react";
 
 const { Title } = Typography;
 const { Item } = Form;
 const { Option } = Select;
 
-const onFinishFailed = errorInfo => {
-  console.log("Failed:", errorInfo);
-};
-const onFinish = values => {
-  console.log("Success:", values);
-};
-
 function CrearPaciente() {
+  const [pacienteDetails, setPacienteDetails] = useState({
+    id: "",
+    key: "",
+    nombrePaciente: "",
+    apellidoPaternoPaciente: "",
+    apellidoMaternoPaciente: "",
+    fechaNacimientoPaciente: "",
+    edadPaciente: "",
+    direccionPaciente: "",
+    correoelectronicoWhatsescogerPaciente: "",
+    correoelectronicoWhatsescribirPaciente: "",
+  });
+
+  const onFinishFailed = errorInfo => {
+    console.log("Failed:", errorInfo);
+  };
+  const onFinish = async values => {
+    const {
+      nombrePaciente,
+      apellidoPaternoPaciente,
+      apellidoMaternoPaciente,
+      fechaNacimientoPaciente,
+      edadPaciente,
+      direccionPaciente,
+      correoelectronicoWhatsescogerPaciente,
+      correoelectronicoWhatsescribirPaciente,
+    } = values;
+    try {
+      const pacienteDetails = {
+        id: uuidv4(),
+        key: uuidv4(),
+        nombrePaciente: nombrePaciente,
+        apellidoPaternoPaciente: apellidoPaternoPaciente,
+        apellidoMaternoPaciente: apellidoMaternoPaciente,
+        fechaNacimientoPaciente: fechaNacimientoPaciente,
+        edadPaciente: edadPaciente,
+        direccionPaciente: direccionPaciente,
+        correoelectronicoWhatsescogerPaciente: correoelectronicoWhatsescogerPaciente,
+        correoelectronicoWhatsescribirPaciente: correoelectronicoWhatsescribirPaciente,
+      };
+      await API.graphql(
+        graphqlOperation(createPaciente, { input: pacienteDetails })
+      );
+      setPacienteDetails({
+        id: "",
+        key: "",
+        nombrePaciente: "",
+        apellidoPaternoPaciente: "",
+        apellidoMaternoPaciente: "",
+        fechaNacimientoPaciente: "",
+        edadPaciente: "",
+        direccionPaciente: "",
+        correoelectronicoWhatsescogerPaciente: "",
+        correoelectronicoWhatsescribirPaciente: "",
+      });
+      console.log("success:", values);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <Row>
