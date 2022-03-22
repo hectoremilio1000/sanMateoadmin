@@ -13,7 +13,7 @@ function SignIn({ signIn, updateFormState }) {
           updateFormState(e);
         }}
         style={styles.input}
-        placeholder="username"
+        placeholder="Usuario"
       />
       <input
         type="password"
@@ -23,9 +23,9 @@ function SignIn({ signIn, updateFormState }) {
           updateFormState(e);
         }}
         style={styles.input}
-        placeholder="password"
+        placeholder="Contraseña"
       />
-      <Button onClick={signIn} title="Sign In" />
+      <Button onClick={signIn} title="Iniciar sesión" />
     </div>
   );
 }

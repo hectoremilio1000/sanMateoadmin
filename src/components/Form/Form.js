@@ -7,13 +7,23 @@ import ConfirmSignUp from "./ConfirmSignUp";
 import ForgotPassword from "./ForgotPassword";
 
 import ForgotPasswordSubmit from "./ForgotPasswordSubmit";
+import { message } from "antd";
 async function signIn({ username, password }, setUser) {
   try {
     const user = await Auth.signIn(username, password);
     const userInfo = { username: user.username, ...user.attributes };
     setUser(userInfo);
+    message.success(
+      {
+        content: "Hola",
+        duration: 4,
+      },
+      4000
+    );
   } catch (err) {
-    console.log("error signing up..", err);
+    setTimeout(() => {
+      message.error({ content: "No existe el usuario", duration: 4 }, 4000);
+    });
   }
 }
 
@@ -24,10 +34,26 @@ async function signUp({ username, password, email }, updateFormType) {
       password,
       attributes: { email },
     });
-    console.log("sign up success!");
+    message.success(
+      {
+        content:
+          "Se ha creado tu cuenta correctamente, revisa tu correo e ingresa el número de confirmación",
+        duration: 4,
+      },
+      4000
+    );
+
     updateFormType("confirmSignUp");
   } catch (err) {
-    console.log("error signing up..", err);
+    setTimeout(() => {
+      message.error(
+        {
+          content: "Cumple con los requisitos de usuario y contraseña",
+          duration: 4,
+        },
+        4000
+      );
+    });
   }
 }
 
@@ -35,16 +61,43 @@ async function confirmSignUp({ username, confirmationCode }, updateFormType) {
   try {
     await Auth.confirmSignUp(username, confirmationCode);
     updateFormType("signIn");
+    message.success(
+      {
+        content: "Usuario registrado correctamente, inicia sesión",
+        duration: 4,
+      },
+      4000
+    );
   } catch (err) {
-    console.log("error signing up..", err);
+    message.error(
+      {
+        content:
+          "Ingresa el código de confirmación que mandamos a tu correo, si tienes dudas escríbenos por whats",
+        duration: 4,
+      },
+      4000
+    );
   }
 }
 async function forgotPassword({ username }, updateFormType) {
   try {
     await Auth.forgotPassword(username);
     updateFormType("forgotPasswordSubmit");
+    message.success(
+      {
+        content: "Se ha enviado un código de confirmación a tu correo",
+        duration: 4,
+      },
+      4000
+    );
   } catch (err) {
-    console.log("error submitting username to reset password...", err);
+    message.error(
+      {
+        content: "error al reestablecer la constraseña",
+        duration: 4,
+      },
+      4000
+    );
   }
 }
 
@@ -55,8 +108,16 @@ async function forgotPasswordSubmit(
   try {
     await Auth.forgotPasswordSubmit(username, confirmationCode, password);
     updateFormType("signIn");
+    message.success(
+      {
+        content:
+          "La contraseña se ha creado correctamente, por favor inicia sesión",
+        duration: 4,
+      },
+      4000
+    );
   } catch (err) {
-    console.log("error updating password... :", err);
+    message.error("error al reestablecer la contraseña", err);
   }
 }
 
@@ -128,30 +189,30 @@ function Form(props) {
       {renderForm()}
       {formType === "signUp" && (
         <p style={styles.toggleForm}>
-          Already have an account?{" "}
+          Ya tienes cuenta?{" "}
           <span style={styles.anchor} onClick={() => updateFormType("signIn")}>
-            Sign In
+            Iniciar sesión
           </span>
         </p>
       )}
       {formType === "signIn" && (
         <>
           <p style={styles.toggleForm}>
-            Need an account?{" "}
+            Regístrate{" "}
             <span
               style={styles.anchor}
               onClick={() => updateFormType("signUp")}
             >
-              Sign Up
+              Da click para registrarte
             </span>
           </p>
           <p style={{ ...styles.toggleForm, ...styles.resetPassword }}>
-            Forget your password?{" "}
+            Has olvidado tu contraseña?{" "}
             <span
               style={styles.anchor}
               onClick={() => updateFormType("forgotPassword")}
             >
-              Reset Password
+              Reestablecer contraseña
             </span>
           </p>
         </>

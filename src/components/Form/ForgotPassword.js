@@ -7,14 +7,14 @@ function ForgotPassword(props) {
     <div style={styles.container}>
       <input
         name="username"
-        placeholder="Username"
+        placeholder="Usuario"
         onChange={e => {
           e.persist();
           props.updateFormState(e);
         }}
         style={styles.input}
       />
-      <Button onClick={props.forgotPassword} title="Reset password" />
+      <Button onClick={props.forgotPassword} title="Reestablecer contraseña" />
     </div>
   );
 }

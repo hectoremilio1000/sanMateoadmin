@@ -7,7 +7,7 @@ function ForgotPasswordSubmit(props) {
     <div style={styles.container}>
       <input
         name="confirmationCode"
-        placeholder="Confirmation code"
+        placeholder="Código de confirmación"
         onChange={e => {
           e.persist();
           props.updateFormState(e);
@@ -16,7 +16,7 @@ function ForgotPasswordSubmit(props) {
       />
       <input
         name="password"
-        placeholder="New password"
+        placeholder="Nueva contraseña"
         type="password"
         onChange={e => {
           e.persist();
@@ -24,7 +24,10 @@ function ForgotPasswordSubmit(props) {
         }}
         style={styles.input}
       />
-      <Button onClick={props.forgotPasswordSubmit} title="Save new password" />
+      <Button
+        onClick={props.forgotPasswordSubmit}
+        title="Guardar nueva contraseña"
+      />
     </div>
   );
 }

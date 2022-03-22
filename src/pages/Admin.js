@@ -39,9 +39,9 @@ function Admin() {
 
         <Button
           onClick={signOut}
-          style={{ width: "100%", backgroundColor: "#fff242", border: 1 }}
+          style={{ width: "100%", backgroundColor: "#fff242", border: 2 }}
         >
-          <span style={{ fontWeight: 800, fontSize: 17 }}>Sign Out</span>
+          <span style={{ fontWeight: 800, fontSize: 17 }}>Cerrar sesión</span>
         </Button>
       </div>
     );

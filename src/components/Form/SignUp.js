@@ -1,3 +1,4 @@
+import { Typography } from "antd";
 import React from "react";
 import Button from "./Button";
 import { styles } from "./Form";
@@ -12,7 +13,7 @@ function SignUp({ updateFormState, signUp }) {
           updateFormState(e);
         }}
         style={styles.input}
-        placeholder="username"
+        placeholder="Usuario"
       />
       <input
         type="password"
@@ -22,7 +23,7 @@ function SignUp({ updateFormState, signUp }) {
           updateFormState(e);
         }}
         style={styles.input}
-        placeholder="password"
+        placeholder="Contraseña"
       />
       <input
         name="email"
@@ -31,9 +32,23 @@ function SignUp({ updateFormState, signUp }) {
           updateFormState(e);
         }}
         style={styles.input}
-        placeholder="email"
+        placeholder="Email"
       />
-      <Button onClick={signUp} title="Sign Up" />
+      <div>
+        <Typography.Title level={5}>Usuario y contraseña</Typography.Title>
+        <Typography.Text type="secondary">
+          - El usuario debe ser el mismo que el email <br />
+        </Typography.Text>
+        <Typography.Text>
+          La contraseña debe contener:
+          <br />
+        </Typography.Text>
+        <Typography.Text type="secondary">
+          - Mínimo 8 caracteres <br />- Mayúsculas y minúsculas <br />- Número{" "}
+          <br />- Caracter especial (%,$,#,...)
+        </Typography.Text>
+      </div>
+      <Button onClick={signUp} title="Registrarse" />
     </div>
   );
 }

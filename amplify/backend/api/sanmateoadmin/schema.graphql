@@ -65,3 +65,9 @@ type Orden @model {
   emailWhatsDirigidoDefinirOrden: String
   mandadoporOrden: String
 }
+
+type Resultado @model {
+  id: ID!
+  key: ID
+  nombrePacienteResultado: String
+}

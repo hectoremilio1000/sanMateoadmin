@@ -1,3 +1,4 @@
+import { Typography } from "antd";
 import React from "react";
 import Button from "./Button";
 import { styles } from "./Form";
@@ -7,14 +8,19 @@ function ConfirmSignUp(props) {
     <div style={styles.container}>
       <input
         name="confirmationCode"
-        placeholder="Confirmation Code"
+        placeholder="Código de confirmación"
         onChange={e => {
           e.persist();
           props.updateFormState(e);
         }}
         style={styles.input}
       />
-      <Button onClick={props.confirmSignUp} title="Confirm Sign Up" />
+      <div>
+        <Typography.Text type="danger">
+          <br /> Revisa tu correo y escribe el código
+        </Typography.Text>
+      </div>
+      <Button onClick={props.confirmSignUp} title="Confirmar registro" />
     </div>
   );
 }
