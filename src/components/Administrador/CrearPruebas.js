@@ -94,15 +94,32 @@ function CrearPruebas() {
   };
 
   //image upload//
+
+  //   const file = e.target.files[0];
+  //   const extension = file.name.spli(".")[1];
+  //   const name = file.name.split(".")[0];
+  //   const key = `images/${uuidv4()}${name}.${extension}`;
+  //   const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`;
+  //   try {
+  //     await Storage.put(key, file, {
+  //       level: "public",
+  //       contentType: file.type,
+  //     });
+  //     const image = await Storage.get(key, { level: "public" });
+  //     setImage(image);
+  //     setPruebaDetails({ ...pruebaDetails, image: url });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
   const normFile = e => {
     console.log("Upload event:", e);
 
     if (Array.isArray(e)) {
       return e;
     }
-
     return e && e.fileList;
   };
+
   return (
     <div>
       <Row>
@@ -157,11 +174,7 @@ function CrearPruebas() {
               valuePropName="fileList"
               getValueFromEvent={normFile}
             >
-              <Upload
-                name="logo"
-                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                listType="picture"
-              >
+              <Upload name="logo" listType="picture">
                 <Button icon={<UploadOutlined />}>Subir</Button>
               </Upload>
             </Item>
