@@ -71,11 +71,21 @@ const columns = [
     dataIndex: "requerimientoPrueba",
     key: "requerimientoPrueba",
   },
+  {
+    title: "id",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "key",
+    dataIndex: "key",
+    key: "key",
+  },
 ];
 
 function ListaPruebas() {
   const { pruebas } = useContext(PruebasContext);
-  console.log(pruebas);
+
   return (
     <>
       <div>ListaPruebas</div>

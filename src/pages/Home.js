@@ -1,7 +1,12 @@
 import React from "react";
+import HomeFront from "../FrontEndMUI/PagesFront/HomeFront/HomeFront";
 
 function Home() {
-  return <div>Hola soy inicio</div>;
+  return (
+    <>
+      <HomeFront />
+    </>
+  );
 }
 
 export default Home;

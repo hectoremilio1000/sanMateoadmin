@@ -45,17 +45,49 @@ function CrearPruebas() {
     requerimientoPrueba: "",
   });
 
+  const normFile = async e => {
+    const fileUpload = e.fileList[0];
+    const fileExtension = fileUpload.name.split(".")[1];
+    const fileName = fileUpload.name.split(".")[0];
+    const fileKey = `images/${uuidv4()}${fileName}.${fileExtension}`;
+    const fileUrl = `https://${bucket}.s3.${region}.amazonaws.com/public/${fileKey}`;
+
+    try {
+      await Storage.put(fileKey, fileUpload, {
+        level: "public",
+        contentType: fileUpload.type,
+      });
+      //retrieve the upload file to display//
+      const image = await Storage.get(fileKey, { level: "public" });
+      setImage(image);
+      setPruebaDetails({ ...pruebaDetails, imagenPrueba: fileUrl });
+      console.log("imagen", image);
+      console.log("prueba details 1", pruebaDetails.imagenPrueba);
+    } catch (error) {
+      console.log(error);
+    }
+
+    if (Array.isArray(e)) {
+      console.log("array", e);
+      return e;
+    }
+    return e && e.fileList;
+  };
+
+  console.log("prueba details 2", pruebaDetails.imagenPrueba);
+
   const onFinishFailed = async errorInfo => {
     console.log("Failed:", errorInfo);
   };
   const onFinish = async values => {
+    console.log("esto es imagen", pruebaDetails.imagenPrueba);
     try {
       const pruebaDetails = {
         id: uuidv4(),
         key: uuidv4(),
         nombrePrueba: values.nombrePrueba,
         categoriaPrueba: values.categoriaPrueba,
-        imagenPrueba: values.imagenPrueba,
+
         creadoporPrueba: values.creadoporPrueba,
         precioPrueba: values.precioPrueba,
         precioPruebaViejo: values.precioPruebaViejo,
@@ -86,38 +118,9 @@ function CrearPruebas() {
         tipoMuestraPrueba: "",
         requerimientoPrueba: "",
       });
-      console.log("Success:", values);
-      console.log(values.nombrePrueba);
     } catch (err) {
       console.log(err);
     }
-  };
-
-  //image upload//
-
-  //   const file = e.target.files[0];
-  //   const extension = file.name.spli(".")[1];
-  //   const name = file.name.split(".")[0];
-  //   const key = `images/${uuidv4()}${name}.${extension}`;
-  //   const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`;
-  //   try {
-  //     await Storage.put(key, file, {
-  //       level: "public",
-  //       contentType: file.type,
-  //     });
-  //     const image = await Storage.get(key, { level: "public" });
-  //     setImage(image);
-  //     setPruebaDetails({ ...pruebaDetails, image: url });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  const normFile = e => {
-    console.log("Upload event:", e);
-
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
   };
 
   return (
@@ -170,11 +173,14 @@ function CrearPruebas() {
             </Item>
             <Item
               name="imagenPrueba"
-              label="Upload"
-              valuePropName="fileList"
+              label="Cargar imagen"
+              valuePropName="fileUpload"
               getValueFromEvent={normFile}
             >
-              <Upload name="logo" listType="picture">
+              <Upload
+                action={pruebaDetails.imagenPrueba}
+                beforeUpload={Upload.LIST_IGNORE}
+              >
                 <Button icon={<UploadOutlined />}>Subir</Button>
               </Upload>
             </Item>
