@@ -29,6 +29,7 @@ import DefaultInfoCard from "../../../examples/Cards/InfoCards/DefaultInfoCard";
 
 // Images
 import bgFront from "../../../assetsFrontMUI/images/pasadas/body_2_serviciosSanMateo.jpg";
+
 import bgBack from "../../../assetsFrontMUI/images/pasadas/bannerLaboratorio.jpg";
 import "./section.css";
 
@@ -59,7 +60,6 @@ function Information() {
               />
               <RotatingCardBack
                 image={bgBack}
-                icon="touch_app"
                 title="Pensamos en ti"
                 description="Nuestra misión es cuidar del paciente y sus ingresos, ofreciendo la mayor confiabilidad y confidencialidad en cada test clínico."
                 action={{
@@ -75,25 +75,24 @@ function Information() {
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
                   icon="content_copy"
-                  title="Full Documentation"
-                  description="Built by developers for developers. Check the foundation and you will find
-                    everything inside our documentation."
+                  title="Laboratorio certificado"
+                  description="Somos un laboratorio que cumple con todos los certificados a nivel nacional"
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
                   icon="flip_to_front"
-                  title="MUI Ready"
-                  description="The world's most popular react components library for building user interfaces."
+                  title="Confiable"
+                  description="Cumplimos con todas las normas del ISO9000"
                 />
               </Grid>
             </Grid>
             <Grid container spacing={3} sx={{ mt: { xs: 0, md: 6 } }}>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="price_change"
-                  title="Save Time & Money"
-                  description="Creating your design from scratch with dedicated designers can be very expensive. Start with our Design System."
+                  icon="price_check"
+                  title="Ahorro"
+                  description="Creemos que el precio no tiene que estar peleado con la calidad"
                 />
               </Grid>
               <Grid item xs={12} md={6}>
