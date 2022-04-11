@@ -74,14 +74,14 @@ function Information() {
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="content_copy"
+                  icon="vaccines"
                   title="Laboratorio certificado"
                   description="Somos un laboratorio que cumple con todos los certificados a nivel nacional"
                 />
               </Grid>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="flip_to_front"
+                  icon="tag_faces"
                   title="Confiable"
                   description="Cumplimos con todas las normas del ISO9000"
                 />
@@ -97,9 +97,9 @@ function Information() {
               </Grid>
               <Grid item xs={12} md={6}>
                 <DefaultInfoCard
-                  icon="devices"
-                  title="Fully Responsive"
-                  description="Regardless of the screen size, the website content will naturally fit the given resolution."
+                  icon="bolt"
+                  title="Rápido"
+                  description="LLegamos a cualquier punto en 30 minutos"
                 />
               </Grid>
             </Grid>
