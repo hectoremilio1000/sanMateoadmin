@@ -63,9 +63,9 @@ function Information() {
                 title="Pensamos en ti"
                 description="Nuestra misión es cuidar del paciente y sus ingresos, ofreciendo la mayor confiabilidad y confidencialidad en cada test clínico."
                 action={{
-                  type: "internal",
-                  route: "/sections/page-sections/page-headers",
-                  label: "start with header",
+                  type: "external",
+                  route: "https://wa.me/+5219511028474",
+                  label: "Reserva",
                 }}
               />
             </RotatingCard>

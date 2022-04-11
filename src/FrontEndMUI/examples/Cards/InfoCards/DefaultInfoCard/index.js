@@ -63,6 +63,7 @@ function DefaultInfoCard({
         display="block"
         variant={small ? "button" : "body2"}
         color="text"
+        fontWeight="bold"
         pr={direction === "left" ? 6 : 0}
         pl={direction === "right" ? 6 : 0}
       >

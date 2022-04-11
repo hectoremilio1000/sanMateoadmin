@@ -1,6 +1,5 @@
 import React from "react";
 import servicios from "../../../assetsFrontMUI/data/servicios2";
-import { Link } from "react-router-dom";
 
 import "./section.css";
 
@@ -18,7 +17,10 @@ export default function Body3Component() {
         {servicios
           .filter(servicio => servicio.category === "covid")
           .map(servicio => (
-            <div className="col-12 col-md-4 pb-4 pl-2 subcontainer1body3">
+            <div
+              className="col-12 col-md-4 pb-4 pl-2 subcontainer1body3"
+              key={servicio.id}
+            >
               <img
                 className="img-fluid mx-auto d-block mt-4 mb-2 imagenbody3"
                 src={servicio.imagen}
@@ -31,7 +33,7 @@ export default function Body3Component() {
                 <p className="text-center mb-2 muestraCard">
                   {servicio.tipoMuestra}
                 </p>
-                {/* <p className="text-center mb-2">{servicios[0].descripcioncorta}</p> */}
+
                 <p className="text-center mb-2 resultadosCard">
                   {servicio.resultados}
                 </p>
@@ -40,14 +42,16 @@ export default function Body3Component() {
                 </p>
               </div>
               <div className="d-flex justify-content-center">
-                <Link to="https://wa.me/+5219511028474">
+                <a href="https://wa.me/+5219511028474">
                   <button className="btn btn-success rounded mt-3">
-                    ¡Reserva ya! ${servicio.precio}{" "}
-                    <h6 className="font-weight-lighter oldPricebody3 pt-1">
+                    <h5 className="text-center text-light">
+                      ¡Reserva ya! ${servicio.precio}
+                    </h5>
+                    <h6 className="oldPricebody3 pt-1 text-secondary">
                       ${servicio.oldPrice}
                     </h6>
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           ))}

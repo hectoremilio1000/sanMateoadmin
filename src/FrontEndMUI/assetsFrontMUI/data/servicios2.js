@@ -134,7 +134,7 @@ const servicios = [
     requerimiento: "No requiere ayuno",
   },
   {
-    id: "8",
+    id: "9",
     titulo: "Glucosa Capilar",
     category: "rapidas",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
@@ -150,7 +150,7 @@ const servicios = [
     requerimiento: "No requiere ayuno",
   },
   {
-    id: "9",
+    id: "10",
     titulo: "Tiempo de Sangrado",
     category: "rapidas",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
@@ -166,7 +166,7 @@ const servicios = [
     requerimiento: "No requiere ayuno",
   },
   {
-    id: "10",
+    id: "11",
     titulo: "Tiempo de Coagulación",
     category: "rapidas",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
@@ -182,7 +182,7 @@ const servicios = [
     requerimiento: "No requiere ayuno",
   },
   {
-    id: "11",
+    id: "12",
     titulo: "Biometría Hemática",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
     precio: 110,
@@ -196,7 +196,7 @@ const servicios = [
     requerimiento: "Ayuno mínimo de 8 horas y máximo de 10 horas",
   },
   {
-    id: "12",
+    id: "13",
     titulo: "Hemoglobina Glicosilada",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
     precio: 280,
@@ -210,7 +210,7 @@ const servicios = [
     requerimiento: "No requiere ayuno",
   },
   {
-    id: "13",
+    id: "14",
     titulo: "Química Sanguínea 3, 6, 12 y 24 elementos",
     imagen: "https://imagenesrutalab.s3.amazonaws.com/rutalab/PCR_vector.jpg",
     precio: 600,

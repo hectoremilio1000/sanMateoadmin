@@ -24,7 +24,6 @@ import MKBox from "../../../componentsFront/ComponetsMUI2/MKBox";
 import MKTypography from "../../../componentsFront/ComponetsMUI2/MKTypography";
 
 function RotatingCardFront({ color, image, icon, title, description }) {
-  console.log(icon);
   return (
     <MKBox
       display="flex"
