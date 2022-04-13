@@ -1,3 +1,4 @@
+import Blog from "pages/Blog";
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "../src/pages/Home";
@@ -11,6 +12,7 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/admin" component={Admin}></Route>
+        <Route path="/blog" component={Blog}></Route>
       </Switch>
     </Router>
   );
